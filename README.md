@@ -1,2 +1,3 @@
 # my_blog
-django personal blog
+### python django 
+personal blog
