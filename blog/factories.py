@@ -26,7 +26,6 @@ class UserFactory(factory.django.DjangoModelFactory):
             user.set_password(password)
             if create:
                 user.save()
-                print(user)
         return user
 
 
