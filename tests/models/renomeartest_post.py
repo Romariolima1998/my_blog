@@ -1,4 +1,6 @@
 import pytest
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_blog.settings")
 
 from blog.factories import PostFactory
 
@@ -10,3 +12,4 @@ def post_published():
 @pytest.mark.django_db
 def test_create_published_post(post_published):
     assert post_published.title == 'pytest with factory'
+ 
