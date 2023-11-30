@@ -11,4 +11,10 @@ class PostView(generic.ListView):
 
 class PostDetail(generic.DateDetailView):
     model = Post
+    slug_field = 'slug'
     template_name = 'post_detail.html'
+    context_object_name = 'post'
+    
+    def get_object(self, queryset=None):
+        # Aqui, 'slug' é extraído dos argumentos de palavra-chave da URL
+        return Post.objects.get(slug=self.kwargs['slug'])
