@@ -26,7 +26,7 @@ def post_detail(request, slug):
     comments = post.comments.filter(active=True).order_by('-created_on')
     new_comment = None
 
-    if request.method == 'Post':
+    if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         
         if comment_form.is_valid():
@@ -36,7 +36,7 @@ def post_detail(request, slug):
 
     else:
         comment_form = CommentForm()
-
+        print()
     return render(
         request,
         template_name,
@@ -44,6 +44,6 @@ def post_detail(request, slug):
             'post': post,
             'comments': comments,
             'new_comment': new_comment,
-            'commet_form': comment_form,
+            'comment_form': comment_form,
         },
     )
